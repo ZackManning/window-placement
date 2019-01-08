@@ -1,0 +1,48 @@
+﻿[
+  {
+    "screenCount": 3,
+    "windowPlacements": [
+      {
+        "windowText": "| Microsoft Teams",
+        "screenAdjustment": -1
+      },
+      {
+        "windowText": "Slack",
+        "screenAdjustment": -1
+      },
+      {
+        "windowText": "npm",
+        "screenAdjustment": 1
+      },
+      {
+        "windowText": "Spotify",
+        "screenAdjustment": 1
+      },
+      {
+        "windowText": "Microsoft SQL Server Management Studio",
+        "screenAdjustment": -1
+      },
+      {
+        "windowText": "Notepad++",
+        "screenAdjustment": -1
+      }
+    ]
+  },
+  {
+    "screenCount": 2,
+    "windowPlacements": [
+      {
+        "windowText": "| Microsoft Teams",
+        "screenAdjustment": -1
+      },
+      {
+        "windowText": "Slack",
+        "screenAdjustment": -1
+      },
+      {
+        "windowText": "Spotify",
+        "screenAdjustment": -1
+      }
+    ]
+  }
+]
