@@ -8,7 +8,7 @@ namespace WindowPlacementLib.Models
 {
     public class WindowPlacement
     {
-        public string WindowText { get; set; }
+        public string WindowText { get; set; } = string.Empty;
         public short ScreenAdjustment { get; set; }
 
         public override string ToString()
