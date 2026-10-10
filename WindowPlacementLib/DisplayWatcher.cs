@@ -43,12 +43,13 @@ namespace WindowPlacementLib
             saveWindowsTimer.Elapsed += SaveWindowsTimer_Elapsed;
             saveWindowsTimer.Start();
 
-            var currentPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var currentPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
+                ?? AppContext.BaseDirectory;
             logger = new SharedUtilties.Logger(Path.Combine(currentPath, "Log.log"));
             logger.WriteLine("Window watching initialized");
         }
 
-        private void SaveWindowsTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private void SaveWindowsTimer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
         {
             try
             {
@@ -80,7 +81,7 @@ namespace WindowPlacementLib
             }
         }
 
-        private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
+        private void SystemEvents_DisplaySettingsChanged(object? sender, EventArgs e)
         {
             var newMonitorCount = SystemInformation.MonitorCount;
             try
@@ -94,7 +95,7 @@ namespace WindowPlacementLib
                         updatingWindows = true;
                         //lock (lockObject)
                         {
-                            MonitorConfiguration config;
+                            MonitorConfiguration? config;
                             if (monitorConfigurations.TryGetValue(newMonitorCount, out config))
                             {
                                 System.Threading.Thread.Sleep(3000);
@@ -164,7 +165,7 @@ namespace WindowPlacementLib
         internal static List<MonitorConfiguration> ParseScreenConfigurationJson(string screenConfigJson)
         {
             var screenConfigs = JsonConvert.DeserializeObject<List<MonitorConfiguration>>(screenConfigJson);
-            return screenConfigs;
+            return screenConfigs ?? [];
         }
 
         #region IDisposable Support
